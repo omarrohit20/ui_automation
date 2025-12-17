@@ -4,6 +4,8 @@ import { ShippingPage } from '../pages/ShippingPage';
 import dataset from '../data/tasks.json';
 
 test.beforeEach(async ({ page }) => {
+  //test.fixme('Settings page does not work in mobile yet');
+
   const loginPage = new LoginPage(page);
   await loginPage.goto();
   await loginPage.login();
@@ -21,19 +23,3 @@ for (const t of dataset) {
     await shippingPage.LabelPrintAndVerify();
   });
 }
-
-test.skip('TC002 - Verify Address (Success)', async ({ page }) => {
-  const shipping = new ShippingPage(page);
-  await shipping.fillRecipientAddress(
-    'John Doe',
-    '',
-    '1 Main St',
-    '',
-    '10001',
-    'New York',
-    'New York',
-    'john.doe@example.com',
-    '555-123-4567'
-  );
-  await shipping.verifyAddress();
-});
