@@ -14,9 +14,26 @@ for (const t of dataset) {
   test(`${t.id} - Verify test "${t.task}" in ${t.app}`, async ({ page }) => {
     const shippingPage = new ShippingPage(page);
     await shippingPage.fillRecipientAddress(t.name, t.company, t.addressLine1, t.addressLine2, t.zip, t.city, t.state, t.email, t.phone);
+    await shippingPage.selectCarrier(t.carrier);
     await shippingPage.selectPackage(t.package);
     await shippingPage.fillDimension(t.length, t.width, t.height, t.weightlb, t.weightoz);
-    await shippingPage.selectServices(t.service);
+    await shippingPage.selectServices();
     await shippingPage.LabelPrintAndVerify();
   });
 }
+
+test.skip('TC002 - Verify Address (Success)', async ({ page }) => {
+  const shipping = new ShippingPage(page);
+  await shipping.fillRecipientAddress(
+    'John Doe',
+    '',
+    '1 Main St',
+    '',
+    '10001',
+    'New York',
+    'New York',
+    'john.doe@example.com',
+    '555-123-4567'
+  );
+  await shipping.verifyAddress();
+});

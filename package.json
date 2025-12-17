@@ -8,6 +8,9 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "scripts": {
+    "test": "playwright test"
+  },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
     "@types/node": "^25.0.0"

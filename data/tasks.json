@@ -7,6 +7,7 @@
       "Feature",
       "High Priority"
     ],
+    "carrier": "USPS",
     "name": "Test ABC",
     "company": "MST Inc",
     "addressLine1": "32 Executive Dr",

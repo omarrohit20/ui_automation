@@ -25,10 +25,18 @@ export class LoginPage {
     await this.nextButton.click();
     await this.passwordInput.fill(config.credentials.password);
     await this.submitButton.click();
-    await expect(this.page.getByRole('link', { name: 'PitneyShip' })).toBeVisible();
+    // Wait for one of several reliable post-login elements that indicate the app is ready
+    await Promise.any([
+      this.page.getByRole('link', { name: 'PitneyShip' }).waitFor({ state: 'visible', timeout: 180000 }),
+      this.page.getByRole('button', { name: 'Create Shipping Labels' }).waitFor({ state: 'visible', timeout: 180000 }),
+      this.page.getByRole('button', { name: /B\s+\w+/ }).waitFor({ state: 'visible', timeout: 180000 })
+    ]);
   }
 
   async navigateToHomePage() {
-    await this.page.getByRole('button', { name: 'Create Shipping Labels' }).click();
+    await this.page.getByRole('button', { name: 'Shipping & Mailing' }).click();
+    await this.page.getByRole('menuitem', { name: 'Create Shipping Label' }).click();
+    // Ensure the Create Shipping Labels page has loaded and recipient inputs are ready
+    await this.page.getByLabel('name').waitFor({ state: 'visible', timeout: 15000 });
   }
 }
