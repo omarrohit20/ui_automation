@@ -1,7 +1,12 @@
-{
-  "baseUrl": "xxxxxxxxx",
-  "credentials": {
+{  
+  "qa":{
+    "baseUrl": "https://test.com",
     "username": "13june2200@yopmail.com",
-    "password": "xxxxxxxxx"
+    "password": "abc#123"
+  },
+  "stage":{
+    "baseUrl": "https://test.com",
+    "username": "13june2200@yopmail.com",
+    "password": "abc#123"
   }
 }

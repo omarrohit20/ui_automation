@@ -3,18 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:qa": "npx playwright test tests/shippingLabel.spec.ts environment=qa",
+    "test:stage": "npx playwright test tests/shippingLabel.spec.ts environment=stage"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "scripts": {
-    "test": "playwright test"
-  },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
     "@types/node": "^25.0.0",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.6.1",
     "zaproxy": "^2.0.0-rc.6"
   }
 }

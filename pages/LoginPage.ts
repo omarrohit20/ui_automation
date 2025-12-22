@@ -1,8 +1,11 @@
 import { Page, Locator, expect } from '@playwright/test';
 import config from '../data/config.json';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export class LoginPage {
   readonly page: Page;
+  readonly env: string;
   readonly usernameInput: Locator;
   readonly nextButton: Locator;
   readonly passwordInput: Locator;
@@ -10,6 +13,7 @@ export class LoginPage {
 
   constructor(page: Page) {
     this.page = page;
+    this.env = process.env.ENVIRONMENT || process.env.environment || process.env.test_env || 'stage';
     this.usernameInput = page.getByRole('textbox', { name: 'Email' });
     this.nextButton = page.getByRole('button', { name: 'Next' });
     this.passwordInput = page.getByRole('textbox', { name: 'Password' });
@@ -17,13 +21,13 @@ export class LoginPage {
   }
 
   async goto() {
-    await this.page.goto(config.baseUrl);
+    await this.page.goto(config[this.env].baseUrl);
   }
 
   async login() {
-    await this.usernameInput.fill(config.credentials.username);
+    await this.usernameInput.fill(config[this.env].username);
     await this.nextButton.click();
-    await this.passwordInput.fill(config.credentials.password);
+    await this.passwordInput.fill(config[this.env].password);
     await this.submitButton.click();
     // Wait for one of several reliable post-login elements that indicate the app is ready
     await Promise.any([

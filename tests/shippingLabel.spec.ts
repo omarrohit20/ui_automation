@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 for (const t of dataset) {
-  test(`${t.id} - Verify test "${t.task}" in ${t.app}`, async ({ page }) => {
+  test(`${t.id} - Verify test "${t.task}" in ${t.app}`, {tag: '@smoke',}, async ({ page }) => {
     const shippingPage = new ShippingPage(page);
     await shippingPage.fillRecipientAddress(t.name, t.company, t.addressLine1, t.addressLine2, t.zip, t.city, t.state, t.email, t.phone);
     await shippingPage.selectCarrier(t.carrier);

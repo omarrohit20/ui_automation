@@ -7,11 +7,11 @@ import { ShippingPage } from '../pages/ShippingPage';
 
 test.describe('Create Shipping Labels', () => {
   test('TC001 - Create & Print Shipping Label (Happy Path)', {
-  annotation: {
-    type: 'issue',
-    description: 'JIRA-1234',
-  },
-}, async ({ page }) => {
+    annotation: {
+      type: 'issue',
+      description: 'JIRA-1234',
+    },
+  }, async ({ page }) => {
     // 1. Navigate to Create Shipping Labels page.
     const login = new LoginPage(page);
     await login.goto();
