@@ -47,21 +47,30 @@ console.log(difference); // Output: [1, 2, 3]
 
 
 
-//check if two arrays are equal
-export function areArraysEqual<T>(array1: T[], array2: T[]): boolean {
-    if (array1.length !== array2.length) {
-        return false;
-    }
-    for (let i = 0; i < array1.length; i++) {
-        if (array1[i] !== array2[i]) {
-            return false;
-        }
-    }
-    return true;
+//rotate an array DSA
+export function rotateArray<T>(array: T[], k: number): T[] {
+    const n = array.length;
+    k = k % n; // In case k is greater than array length
+    return array.slice(n - k).concat(array.slice(0, n - k));
 }
 // Example usage
-const arrayX = [1, 2, 3];
-const arrayY = [1, 2, 3];
-const arrayZ = [1, 2, 4];
-console.log(areArraysEqual(arrayX, arrayY));
+const arr = [1, 2, 3, 4, 5];
+const k = 2;
+const rotatedArray = rotateArray(arr, k);
+console.log(rotatedArray); // Output: [4, 5, 1, 2, 3]
 
+
+//Generate all Subarrays
+export function generateSubarrays<T>(array: T[]): T[][] {
+    const subarrays: T[][] = [];
+    for (let i = 0; i < array.length; i++) {
+        for (let j = i + 1; j <= array.length; j++) {
+            subarrays.push(array.slice(i, j));
+        }
+    }
+    return subarrays;
+}
+// Example usage
+const arr = [1, 2, 3];
+const allSubarrays = generateSubarrays(arr);
+console.log(allSubarrays); // Output: [[1], [1, 2], [1, 2, 3], [2], [2, 3], [3]]
