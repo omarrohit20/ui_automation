@@ -74,3 +74,83 @@ export function generateSubarrays<T>(array: T[]): T[][] {
 const arr = [1, 2, 3];
 const allSubarrays = generateSubarrays(arr);
 console.log(allSubarrays); // Output: [[1], [1, 2], [1, 2, 3], [2], [2, 3], [3]]
+
+
+//maximum subarray sum using Kadane's Algorithm
+export function maxSubarraySum(array: number[]): number {
+    let maxSoFar = array[0];
+    let maxEndingHere = array[0];
+    for (let i = 1; i < array.length; i++) {
+        maxEndingHere = Math.max(array[i], maxEndingHere + array[i]);
+        maxSoFar = Math.max(maxSoFar, maxEndingHere);
+    }
+    return maxSoFar;
+}
+
+// Example usage
+const arr = [-2,1,-3,4,-1,2,1,-5,4];
+const maxSum = maxSubarraySum(arr);
+console.log(maxSum); // Output: 6 (subarray [4,-1,2,1])
+
+
+//array spiral order traversal
+export function spiralOrder(matrix: number[][]): number[] {
+    const result: number[] = [];
+    if (matrix.length === 0) return result;
+    let top = 0;
+    let bottom = matrix.length - 1;
+    let left = 0;
+    let right = matrix[0].length - 1;
+    while (top <= bottom && left <= right) {
+        for (let i = left; i <= right; i++) {
+            result.push(matrix[top][i]);
+        }
+        top++;
+        for (let i = top; i <= bottom; i++) {
+            result.push(matrix[i][right]);
+        }
+        right--;
+        if (top <= bottom) {
+            for (let i = right; i >= left; i--) {
+                result.push(matrix[bottom][i]);
+            }
+            bottom--;
+        }   
+        if (left <= right) {
+            for (let i = bottom; i >= top; i--) {
+                result.push(matrix[i][left]);
+            }   
+            left++;
+        }
+    }
+    return result;
+}
+
+// Example usage
+const matrix = [
+    [1, 2, 3], 
+    [4, 5, 6],
+    [7, 8, 9]
+];
+const spiralTraversal = spiralOrder(matrix);
+console.log(spiralTraversal); // Output: [1, 2, 3, 6, 9, 8, 7, 4, 5]
+
+
+//Array Pair Sum
+export function arrayPairSum(array: number[], targetSum: number): [number, number][] {
+    const seen = new Set<number>();
+    const pairs: [number, number][] = [];
+    for (const num of array) {
+        const complement = targetSum - num;
+        if (seen.has(complement)) {
+            pairs.push([complement, num]);
+        }
+        seen.add(num);
+    }
+    return pairs;
+}
+// Example usage
+const arr = [1, 2, 3, 4, 5];
+const target = 6;
+const pairs = arrayPairSum(arr, target);
+console.log(pairs); // Output: [[1, 5], [2, 4]]

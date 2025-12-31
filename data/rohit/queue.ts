@@ -14,6 +14,7 @@ class queue<t> {
         }
         return this.items.shift();
     };
+    
     // Peek front element without removing
     front(): t | undefined {
         if (this.isEmpty()) {
@@ -26,6 +27,7 @@ class queue<t> {
     isEmpty(): boolean {
         return this.items.length === 0;
     };
+    
     // Get queue size
     size(): number {
         return this.items.length;
