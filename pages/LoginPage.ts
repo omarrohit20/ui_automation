@@ -31,7 +31,6 @@ export class LoginPage {
     await this.submitButton.click();
     // Wait for one of several reliable post-login elements that indicate the app is ready
     await Promise.any([
-      this.page.getByRole('link', { name: 'PitneyShip' }).waitFor({ state: 'visible', timeout: 180000 }),
       this.page.getByRole('button', { name: 'Create Shipping Labels' }).waitFor({ state: 'visible', timeout: 180000 }),
       this.page.getByRole('button', { name: /B\s+\w+/ }).waitFor({ state: 'visible', timeout: 180000 })
     ]);
