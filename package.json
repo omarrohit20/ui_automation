@@ -16,6 +16,7 @@
     "@playwright/test": "^1.57.0",
     "@types/node": "^25.0.0",
     "dotenv": "^16.6.1",
+    "playwright-ctrf-json-reporter": "^0.0.27",
     "zaproxy": "^2.0.0-rc.6"
   }
 }

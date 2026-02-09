@@ -1,12 +1,4 @@
-import { test } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-
-test.beforeEach(async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  await loginPage.goto();
-  await loginPage.login();
-  await loginPage.navigateToHomePage();
-});
+import { test, expect } from '@playwright/test';
 
 test.describe('Test group', () => {
   test('seed', async ({ page }) => {

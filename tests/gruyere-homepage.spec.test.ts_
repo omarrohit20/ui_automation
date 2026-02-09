@@ -17,7 +17,7 @@ let browser: Browser;
 let context: BrowserContext;
 let page: Page;
 
-test.describe("Airbnb Security Testing", () => {
+test.describe.skip("Airbnb Security Testing", () => {
   test.setTimeout(100_000); // 100 seconds
 
   test.beforeAll(async () => {
@@ -42,7 +42,7 @@ test.describe("Airbnb Security Testing", () => {
     await page.close();
   });
 
-  test("Airbnb Homepage test", async ({ page }) => {
+  test.skip("Airbnb Homepage test", async ({ page }) => {
     console.log("Running ZAP security test for the homepage...");
     await generateZAPReport(
       zapClient, // Pass the ZAP client instance

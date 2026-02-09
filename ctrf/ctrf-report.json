@@ -1,0 +1,59 @@
+{
+  "reportFormat": "CTRF",
+  "specVersion": "0.0.0",
+  "reportId": "a4bf7e98-c97c-4d0b-ab57-8793d6a2a55d",
+  "timestamp": "2026-01-24T09:49:12.919Z",
+  "generatedBy": "playwright-ctrf-json-reporter",
+  "results": {
+    "tool": {
+      "name": "playwright"
+    },
+    "summary": {
+      "tests": 1,
+      "passed": 0,
+      "failed": 1,
+      "pending": 0,
+      "skipped": 0,
+      "other": 0,
+      "start": 1769248154289,
+      "stop": 1769258061671,
+      "suites": 0
+    },
+    "tests": [
+      {
+        "name": "TC006 - Product Catalog Display",
+        "status": "failed",
+        "duration": 9909068,
+        "start": 1769248155,
+        "stop": 1769258064,
+        "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
+        "trace": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
+        "rawStatus": "timedOut",
+        "tags": [],
+        "type": "e2e",
+        "filePath": "D:\\git\\learning\\ui_automation\\tests\\TC006-catalog-display.spec.ts",
+        "retries": 0,
+        "flaky": false,
+        "steps": [],
+        "suite": "chromium > TC006-catalog-display.spec.ts > Product Catalog and Search Functionality",
+        "attachments": [
+          {
+            "name": "error-context",
+            "contentType": "text/markdown",
+            "path": "D:\\git\\learning\\ui_automation\\test-results\\TC006-catalog-display-Prod-c845a-6---Product-Catalog-Display-chromium\\error-context.md"
+          },
+          {
+            "name": "trace",
+            "contentType": "application/zip",
+            "path": "D:\\git\\learning\\ui_automation\\test-results\\TC006-catalog-display-Prod-c845a-6---Product-Catalog-Display-chromium\\trace.zip"
+          }
+        ],
+        "stdout": [],
+        "stderr": [],
+        "extra": {
+          "annotations": []
+        }
+      }
+    ]
+  }
+}
