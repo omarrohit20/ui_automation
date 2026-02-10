@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-import { ShippingPage } from '../pages/ShippingPage';
-import dataset from '../data/tasks.json';
+import { LoginPage } from '../../pages/LoginPage';
+import { ShippingPage } from '../../pages/ShippingPage';
+import dataset from '../../data/tasks.json';
 
 test.beforeEach(async ({ page }) => {
   //test.fixme('Settings page does not work in mobile yet');

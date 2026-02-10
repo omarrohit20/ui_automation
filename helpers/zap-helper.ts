@@ -10,7 +10,7 @@ export async function generateZAPReport(
   filename: any
 ) {
   // Define the report directory and path
-  const reportDir = path.join(__dirname, "reports");
+  const reportDir = path.join("reports");
   const reportPath = path.join(reportDir, `${filename}.html`);
 
   // Ensure the report directory exists

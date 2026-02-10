@@ -2,8 +2,8 @@
 // seed: tests/seed.spec.ts
 
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-import { ShippingPage } from '../pages/ShippingPage';
+import { LoginPage } from '../../pages/LoginPage';
+import { ShippingPage } from '../../pages/ShippingPage';
 
 test.describe('Create Shipping Labels', () => {
   test('TC001 - Create & Print Shipping Label (Happy Path)', {
