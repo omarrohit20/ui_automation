@@ -1,12 +1,12 @@
 {  
   "qa":{
-    "baseUrl": "https://test.com",
-    "username": "13june2200@yopmail.com",
-    "password": "abc#123"
+    "baseUrl": "https://spa-ui-qa.sendpro360.pitneycloud.com/",
+    "username": "apollo13june2200@yopmail.com",
+    "password": "Horizon#123"    
   },
   "stage":{
-    "baseUrl": "https://test.com",
-    "username": "13june2200@yopmail.com",
-    "password": "abc#123"
+    "baseUrl": "https://app-ppd.sendpro360.pitneybowes.com/",
+    "username": "apollo13june2200@yopmail.com",
+    "password": "Horizon#123"  
   }
 }
