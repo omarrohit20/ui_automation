@@ -6,7 +6,19 @@
   "scripts": {
     "test": "playwright test",
     "test:qa": "npx playwright test tests/shippingLabel.spec.ts environment=qa",
-    "test:stage": "npx playwright test tests/shippingLabel.spec.ts environment=stage"
+    "test:stage": "npx playwright test tests/shippingLabel.spec.ts environment=stage",
+    "test:api": "ENV=dev playwright test --config api-test.config.ts",
+    "test:api:qa": "ENV=qa playwright test --config api-test.config.ts",
+    "test:api:staging": "ENV=staging playwright test --config api-test.config.ts",
+    "test:api:prod": "ENV=prod playwright test --config api-test.config.ts",
+    "test:api:users": "ENV=dev playwright test --config api-test.config.ts tests/api/users.spec.ts",
+    "test:api:notes": "ENV=dev playwright test --config api-test.config.ts tests/api/notes.spec.ts",
+    "test:api:integration": "ENV=dev playwright test --config api-test.config.ts tests/api/integration.spec.ts",
+    "test:api:smoke": "ENV=dev playwright test --config api-test.config.ts --grep @positive",
+    "test:api:negative": "ENV=dev playwright test --config api-test.config.ts --grep @negative",
+    "test:api:debug": "ENV=dev DEBUG=pw:api playwright test --config api-test.config.ts --debug",
+    "test:api:ui": "ENV=dev playwright test --config api-test.config.ts --ui",
+    "report": "playwright show-report api-test-results/html"
   },
   "keywords": [],
   "author": "",
