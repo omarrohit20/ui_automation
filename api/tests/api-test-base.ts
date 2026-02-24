@@ -4,10 +4,10 @@
  */
 
 import { test, expect } from '@playwright/test';
-import { ApiServiceLocator } from '../api/services/api-service-locator';
-import EnvironmentConfig from '../api/config/environment';
-import logger, { LogLevel } from '../api/utils/logger';
-import { TestDataFactory } from '../api/fixtures/test-data-factory';
+import { ApiServiceLocator } from '../services/api-service-locator';
+import EnvironmentConfig from '../config/environment';
+import logger, { LogLevel } from '../utils/logger';
+import { TestDataFactory } from '../fixtures/test-data-factory';
 
 export class ApiTestBase {
   protected static isInitialized = false;
@@ -120,7 +120,7 @@ export interface IAuthContext {
 }
 
 export async function getAuthContext(email?: string, password?: string): Promise<IAuthContext> {
-  const { getUsersService } = await import('../api/services/api-service-locator');
+  const { getUsersService } = await import('../services/api-service-locator');
   const usersService = getUsersService();
 
   const testEmail = email || 'practice@expandtesting.com';

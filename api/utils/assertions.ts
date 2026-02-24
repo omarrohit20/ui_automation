@@ -4,7 +4,7 @@
  */
 
 import { expect } from '@playwright/test';
-import { ApiResponse } from '../api/models/api-response';
+import { ApiResponse } from '../models/api-response';
 
 /**
  * Custom API Response Assertions

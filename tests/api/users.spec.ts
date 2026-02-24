@@ -4,10 +4,10 @@
  */
 
 import { test, expect } from '@playwright/test';
-import { ApiTestBase, expectStatus, expectSuccess, expectDataExists, getAuthContext } from './api-test-base';
-import { getUsersService } from '../api/services/api-service-locator';
-import { TestDataFactory } from '../api/fixtures/test-data-factory';
-import { REGISTRATION_SCENARIOS, LOGIN_SCENARIOS } from '../api/fixtures/test-scenarios';
+import { ApiTestBase, expectStatus, expectSuccess, expectDataExists, getAuthContext } from '../../api/tests/api-test-base';
+import { getUsersService } from '../../api/services/api-service-locator';
+import { TestDataFactory } from '../../api/fixtures/test-data-factory';
+import { REGISTRATION_SCENARIOS, LOGIN_SCENARIOS } from '../../api/fixtures/test-scenarios';
 
 // Global setup
 test.beforeAll(async () => {
@@ -63,7 +63,7 @@ test.describe('User Registration', () => {
         );
 
         // Verify status code
-        expectStatus(response.getStatus(), scenario.expectedStatus, scenario.description);
+        expectStatus(response.getStatus(), scenario.expectedStatus ?? 200, scenario.description);
 
         // Verify success flag matches expectation
         expectSuccess(response, scenario.shouldSucceed);
@@ -103,7 +103,7 @@ test.describe('User Login', () => {
         );
 
         // Verify status code
-        expectStatus(response.getStatus(), scenario.expectedStatus, scenario.description);
+        expectStatus(response.getStatus(), scenario.expectedStatus ?? 200, scenario.description);
 
         // Verify success flag matches expectation
         expectSuccess(response, scenario.shouldSucceed);

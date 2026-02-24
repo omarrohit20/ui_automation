@@ -9,10 +9,10 @@ import {
   expectStatus,
   expectSuccess,
   expectDataExists,
-} from './api-test-base';
-import { getUsersService, getNotesService } from '../api/services/api-service-locator';
-import { TestDataFactory } from '../api/fixtures/test-data-factory';
-import { ApiAssertions, DataValidations } from '../api/utils/assertions';
+} from '../../api/tests/api-test-base';
+import { getUsersService, getNotesService } from '../../api/services/api-service-locator';
+import { TestDataFactory } from '../../api/fixtures/test-data-factory';
+import { ApiAssertions, DataValidations } from '../../api/utils/assertions';
 
 // Global setup/teardown
 test.beforeAll(async () => {

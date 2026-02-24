@@ -1,4 +1,4 @@
-/**
+ /**
  * Notes API Tests - Data-Driven
  * Comprehensive test suite for notes management
  */
@@ -10,15 +10,15 @@ import {
   expectSuccess,
   expectDataExists,
   getAuthContext,
-} from './api-test-base';
-import { getNotesService } from '../api/services/api-service-locator';
-import { TestDataFactory } from '../api/fixtures/test-data-factory';
+} from '../../api/tests/api-test-base';
+import { getNotesService } from '../../api/services/api-service-locator';
+import { TestDataFactory } from '../../api/fixtures/test-data-factory';
 import {
   CREATE_NOTE_SCENARIOS,
   UPDATE_NOTE_SCENARIOS,
   DELETE_NOTE_SCENARIOS,
-} from '../api/fixtures/test-scenarios';
-import { INote } from '../api/services/index';
+} from '../../api/fixtures/test-scenarios';
+import { INote } from '../../api/services/index';
 
 // Global setup
 test.beforeAll(async () => {
@@ -278,7 +278,7 @@ test.describe('Delete Notes', () => {
           authContext.token
         );
 
-        expectStatus(deleteResponse.getStatus(), scenario.expectedStatus);
+        expectStatus(deleteResponse.getStatus(), scenario.expectedStatus ?? 200);
         expectSuccess(deleteResponse, scenario.shouldSucceed);
 
         // Verify note is actually deleted
