@@ -4,11 +4,11 @@
  */
 
 import { request, APIRequestContext } from '@playwright/test';
-import { IRequestConfig, IHttpResponse, RequestBuilder } from '../models/http-request';
-import { ApiResponse, parseApiResponse } from '../models/api-response';
-import EnvironmentConfig from '../config/environment';
-import logger from './logger';
-import { RetryStrategy, IRetryConfig } from './retry-strategy';
+import { IRequestConfig, IHttpResponse, RequestBuilder } from './models/http-request';
+import { ApiResponse, parseApiResponse } from './models/api-response';
+import EnvironmentConfig from './config/environment';
+import logger from './utils/logger';
+import { RetryStrategy, IRetryConfig } from './utils/retry-strategy';
 
 export class HttpClient {
   private context: APIRequestContext | null = null;
