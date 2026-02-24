@@ -16,3 +16,16 @@ npx playwright test --reporter=line
 npx playwright test --retries=3
 
 A project is logical group of tests running with the same configuration. We use projects so we can run tests on different browsers and devices. Projects are configured in the playwright.config.ts
+
+---
+
+## Performance tests (k6)
+
+Aside from functional and API automation, the repository includes a set of **k6** scripts located in `k6/`.
+The principal load‑test (`notes-api-load-test.js`) exercises every endpoint of the Notes API using realistic user flows, custom metrics, and threshold definitions.  To execute:
+
+```bash
+npm run perf:k6
+```
+
+You can override the base URL via `BASE_URL`, register new users (`REGISTER_NEW_USER=1`) or supply existing credentials via `TEST_USER`/`TEST_PASS`.  Results are printed to console and may be exported with `--out` or `--summary-export` for HTML/JSON reports.

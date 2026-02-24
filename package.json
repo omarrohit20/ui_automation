@@ -18,8 +18,9 @@
     "test:api:negative": "ENV=dev playwright test --config api-test.config.ts --grep @negative",
     "test:api:debug": "ENV=dev DEBUG=pw:api playwright test --config api-test.config.ts --debug",
     "test:api:ui": "ENV=dev playwright test --config api-test.config.ts --ui",
-    "report": "playwright show-report api-test-results/html"
-  },
+    "report": "playwright show-report api-test-results/html",
+    "perf:k6": "k6 run k6/scripts/notes-api-load-test.js"
+  }
   "keywords": [],
   "author": "",
   "license": "ISC",
