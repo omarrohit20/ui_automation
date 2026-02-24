@@ -36,7 +36,7 @@ export const REGISTRATION_SCENARIOS: IUserTestScenario[] = [
     },
     expectedStatus: 201,
     shouldSucceed: true,
-    tags: ['positive', 'registration'],
+    tags: ['@positive', '@registration'],
     description: 'User should be able to register with valid credentials',
   },
   {
@@ -48,7 +48,7 @@ export const REGISTRATION_SCENARIOS: IUserTestScenario[] = [
     },
     expectedStatus: 400,
     shouldSucceed: false,
-    tags: ['negative', 'registration', 'validation'],
+    tags: ['@negative', '@registration', '@validation'],
     description: 'Registration should fail with empty name',
   },
   {
@@ -60,7 +60,7 @@ export const REGISTRATION_SCENARIOS: IUserTestScenario[] = [
     },
     expectedStatus: 400,
     shouldSucceed: false,
-    tags: ['negative', 'registration', 'validation'],
+    tags: ['@negative', '@registration', '@validation'],
     description: 'Registration should fail with invalid email format',
   },
   {
@@ -72,7 +72,7 @@ export const REGISTRATION_SCENARIOS: IUserTestScenario[] = [
     },
     expectedStatus: 400,
     shouldSucceed: false,
-    tags: ['negative', 'registration', 'validation'],
+    tags: ['@negative', '@registration', '@validation'],
     description: 'Registration should fail with weak password',
   },
   {
@@ -83,7 +83,7 @@ export const REGISTRATION_SCENARIOS: IUserTestScenario[] = [
     },
     expectedStatus: 400,
     shouldSucceed: false,
-    tags: ['negative', 'registration', 'validation'],
+    tags: ['@negative', '@registration', '@validation'],
     description: 'Registration should fail with missing email',
   },
 ];
@@ -100,7 +100,7 @@ export const LOGIN_SCENARIOS: ITestScenario<{ email: string; password: string }>
     },
     expectedStatus: 200,
     shouldSucceed: true,
-    tags: ['positive', 'login', 'auth'],
+    tags: ['@positive', '@login', '@auth'],
     description: 'User should login with valid credentials',
   },
   {
@@ -111,7 +111,7 @@ export const LOGIN_SCENARIOS: ITestScenario<{ email: string; password: string }>
     },
     expectedStatus: 401,
     shouldSucceed: false,
-    tags: ['negative', 'login', 'auth'],
+    tags: ['@negative', '@login', '@auth'],
     description: 'Login should fail with incorrect password',
   },
   {
@@ -122,7 +122,7 @@ export const LOGIN_SCENARIOS: ITestScenario<{ email: string; password: string }>
     },
     expectedStatus: 401,
     shouldSucceed: false,
-    tags: ['negative', 'login', 'auth'],
+    tags: ['@negative', '@login', '@auth'],
     description: 'Login should fail with non-existent email',
   },
   {
@@ -133,7 +133,7 @@ export const LOGIN_SCENARIOS: ITestScenario<{ email: string; password: string }>
     },
     expectedStatus: 400,
     shouldSucceed: false,
-    tags: ['negative', 'login', 'validation'],
+    tags: ['@negative', '@login', '@validation'],
     description: 'Login should fail with empty email',
   },
   {
@@ -144,7 +144,7 @@ export const LOGIN_SCENARIOS: ITestScenario<{ email: string; password: string }>
     },
     expectedStatus: 400,
     shouldSucceed: false,
-    tags: ['negative', 'login', 'validation'],
+    tags: ['@negative', '@login', '@validation'],
     description: 'Login should fail with empty password',
   },
 ];
@@ -162,7 +162,7 @@ export const CREATE_NOTE_SCENARIOS: INoteTestScenario[] = [
     },
     expectedStatus: 200,
     shouldSucceed: true,
-    tags: ['positive', 'notes', 'create'],
+    tags: ['@positive', '@notes', '@create'],
     description: 'User should create note with valid data',
   },
   {
@@ -174,7 +174,7 @@ export const CREATE_NOTE_SCENARIOS: INoteTestScenario[] = [
     },
     expectedStatus: 200,
     shouldSucceed: true,
-    tags: ['positive', 'notes', 'create'],
+    tags: ['@positive', '@notes', '@create'],
     description: 'User should create personal category note',
   },
   {
@@ -186,7 +186,7 @@ export const CREATE_NOTE_SCENARIOS: INoteTestScenario[] = [
     },
     expectedStatus: 200,
     shouldSucceed: true,
-    tags: ['positive', 'notes', 'create'],
+    tags: ['@positive', '@notes', '@create'],
     description: 'User should create home category note',
   },
   {
@@ -198,7 +198,7 @@ export const CREATE_NOTE_SCENARIOS: INoteTestScenario[] = [
     },
     expectedStatus: 400,
     shouldSucceed: false,
-    tags: ['negative', 'notes', 'validation'],
+    tags: ['@negative', '@notes', '@validation'],
     description: 'Note creation should fail with empty title',
   },
   {
@@ -210,7 +210,7 @@ export const CREATE_NOTE_SCENARIOS: INoteTestScenario[] = [
     },
     expectedStatus: 400,
     shouldSucceed: false,
-    tags: ['negative', 'notes', 'validation'],
+    tags: ['@negative', '@notes', '@validation'],
     description: 'Note creation should fail with empty description',
   },
   {
@@ -222,7 +222,7 @@ export const CREATE_NOTE_SCENARIOS: INoteTestScenario[] = [
     },
     expectedStatus: 400,
     shouldSucceed: false,
-    tags: ['negative', 'notes', 'validation'],
+    tags: ['@negative', '@notes', '@validation'],
     description: 'Note creation should fail with invalid category',
   },
 ];
@@ -241,7 +241,7 @@ export const UPDATE_NOTE_SCENARIOS: INoteTestScenario[] = [
     },
     expectedStatus: 200,
     shouldSucceed: true,
-    tags: ['positive', 'notes', 'update'],
+    tags: ['@positive', '@notes', '@update'],
     description: 'User should update note with valid data',
   },
   {
@@ -254,7 +254,7 @@ export const UPDATE_NOTE_SCENARIOS: INoteTestScenario[] = [
     },
     expectedStatus: 200,
     shouldSucceed: true,
-    tags: ['positive', 'notes', 'update'],
+    tags: ['@positive', '@notes', '@update'],
     description: 'User should mark note as completed',
   },
   {
@@ -267,7 +267,7 @@ export const UPDATE_NOTE_SCENARIOS: INoteTestScenario[] = [
     },
     expectedStatus: 200,
     shouldSucceed: true,
-    tags: ['positive', 'notes', 'update'],
+    tags: ['@positive', '@notes', '@update'],
     description: 'User should change note category',
   },
 ];
@@ -281,7 +281,7 @@ export const DELETE_NOTE_SCENARIOS: ITestScenario<{ noteId: string }>[] = [
     input: { noteId: 'valid-note-id' },
     expectedStatus: 200,
     shouldSucceed: true,
-    tags: ['positive', 'notes', 'delete'],
+    tags: ['@positive', '@notes', '@delete'],
     description: 'User should delete existing note',
   },
   {
@@ -289,7 +289,7 @@ export const DELETE_NOTE_SCENARIOS: ITestScenario<{ noteId: string }>[] = [
     input: { noteId: 'non-existent-id' },
     expectedStatus: 400,
     shouldSucceed: false,
-    tags: ['negative', 'notes', 'delete'],
+    tags: ['@negative', '@notes', '@delete'],
     description: 'Delete should fail for non-existent note',
   },
   {
@@ -297,7 +297,7 @@ export const DELETE_NOTE_SCENARIOS: ITestScenario<{ noteId: string }>[] = [
     input: { noteId: '' },
     expectedStatus: 400,
     shouldSucceed: false,
-    tags: ['negative', 'notes', 'delete'],
+    tags: ['@negative', '@notes', '@delete'],
     description: 'Delete should fail with empty note ID',
   },
 ];
