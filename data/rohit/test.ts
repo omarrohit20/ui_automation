@@ -14,7 +14,6 @@ function countChar(data: string) : Record<string, number>{
     }
 
     return charCount;
-
 }
 
 console.log(countChar("Hello Rohit Omar"));
@@ -163,7 +162,30 @@ console.log(rotateArray([1,2,3,4,5], 2)); // Output: [4,5,1,2,3]
 
 // 10. Find common elements in two arrays
 function commonElements<T>(arr1: T[], arr2: T[]): T[] {
-const set2 = new Set(arr2);
-return arr1.filter(item => set2.has(item));
+    const set2 = new Set(arr2);
+    return arr1.filter(item => set2.has(item));
 }
 console.log(commonElements([1,2,3,4], [3,4,5,6])); // Output: [3,4]
+
+
+// 11. Check if two strings are anagrams
+function areAnagrams(str1: string, str2: string): boolean {
+    const normalize = (str: string) => str.toLowerCase().split('').sort().join('');
+    return normalize(str1) === normalize(str2);
+}   
+
+console.log(areAnagrams("listen", "silent")); // Output: true
+console.log(areAnagrams("hello", "world"));   // Output: false
+
+
+//12. Function Overloading example
+function isString(value: any): value is string {
+    return typeof value === 'string';
+}
+// Usage
+const input: any = "Hello, World!";
+if (isString(input)) {
+    console.log(input.toUpperCase()); // Safe to use string methods
+} else {
+    console.log("Input is not a string.");
+}

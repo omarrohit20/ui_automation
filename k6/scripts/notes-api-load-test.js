@@ -17,9 +17,9 @@ export const options = {
       executor: 'ramping-vus',
       startVUs: 0,
       stages: [
-        { duration: '2m', target: 10 },
-        { duration: '5m', target: 50 },
-        { duration: '2m', target: 0 },
+        { duration: '1m', target: 3 },
+        { duration: '3m', target: 5 },
+        { duration: '1m', target: 0 },
       ],
     },
   },
@@ -39,10 +39,10 @@ export function setup() {
   // create a user before the VUs start; return credentials to each VU
   // set REGISTER_NEW_USER=1 in the environment to have the script
   // register a fresh account; otherwise supply TEST_USER and TEST_PASS.
-  const useRegistration = __ENV.REGISTER_NEW_USER === '1';
+  const useRegistration = __ENV.REGISTER_NEW_USER === '0';
   const credentials = useRegistration
     ? registerNewUser()
-    : { email: __ENV.TEST_USER, password: __ENV.TEST_PASS };
+    : { email: "practicetest@expandtesting.com", password: "asdf1234" };
   return credentials;
 }
 
